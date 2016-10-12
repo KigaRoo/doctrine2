@@ -100,7 +100,7 @@ class EntityRepository implements ObjectRepository
     /**
      * Finds an entity by its primary key / identifier.
      *
-     * @param $id The identifier.
+     * @param int $id The identifier.
      * @param int $lockMode
      * @param int $lockVersion
      * @return object The entity.
@@ -242,3 +242,4 @@ class EntityRepository implements ObjectRepository
         return $this->_class;
     }
 }
+

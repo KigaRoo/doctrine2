@@ -567,10 +567,11 @@ class UnitOfWork implements PropertyChangedListener
     private function computeAssociationChanges($assoc, $value)
     {
         if ($value instanceof PersistentCollection && $value->isDirty()) {
+            $coid = spl_object_hash($value);
             if ($assoc['isOwningSide']) {
-                $this->collectionUpdates[] = $value;
+                $this->collectionUpdates[$coid] = $value;
             }
-            $this->visitedCollections[] = $value;
+            $this->visitedCollections[$coid] = $value;
         }
 
         // Look through the entities, and in any of their associations, for transient (new)
