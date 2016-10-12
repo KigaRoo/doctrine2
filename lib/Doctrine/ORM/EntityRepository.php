@@ -242,4 +242,3 @@ class EntityRepository implements ObjectRepository
         return $this->_class;
     }
 }
-
